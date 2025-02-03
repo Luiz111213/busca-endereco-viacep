@@ -73,7 +73,7 @@ function buscarEndereco() {
 
 ## Como Executar o Projeto
 1. Clonar este repositório.
-2. Instalar as dependências necessárias (`composer install` ou `npm install`).
+2. Instalar as dependências necessárias (`composer install`).
 3. Configurar o banco de dados e rodar as migrações (`php artisan migrate` para Laravel).
 4. Iniciar o servidor (`php artisan serve` para Laravel).
 5. Acessar `http://localhost:8000` no navegador para testar a aplicação.
