@@ -10,9 +10,9 @@ Desenvolver uma aplicação web para buscar endereços utilizando a API do ViaCE
 - Criar uma tela para listar os registros cadastrados.
 
 ## Tecnologias Recomendadas
-- Linguagem: PHP (Laravel) ou Node.js
-- Banco de Dados: MySQL ou PostgreSQL
-- Frontend: HTML, CSS, JavaScript (com jQuery ou Vue.js)
+- Linguagem: PHP (Laravel)
+- Banco de Dados: MySQL
+- Frontend: HTML, CSS, JavaScript (com jQuery)
 - API Externa: [ViaCEP](https://viacep.com.br/)
 
 ## Passos para Implementação
