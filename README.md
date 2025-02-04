@@ -1,85 +1,124 @@
-# Teste de Desenvolvimento - Busca de Endereços com ViaCEP
+Aqui está um exemplo de um **README** detalhado para orientar o desenvolvedor:
 
-## Objetivo
-Desenvolver uma aplicação web para buscar endereços utilizando a API do ViaCEP, preencher automaticamente os campos do formulário e armazenar os dados em um banco de dados. Além disso, criar uma tela para listar os registros cadastrados.
+---
 
-## Requisitos
-- Criar uma página para buscar endereços pelo CEP utilizando a API do ViaCEP.
-- Preencher automaticamente os campos do formulário com os dados retornados.
-- Armazenar os dados preenchidos no banco de dados ao submeter o formulário.
-- Criar uma tela para listar os registros cadastrados.
+# Cadastro de Endereços com ViaCEP
 
-## Tecnologias Recomendadas
-- Linguagem: PHP (Laravel)
-- Banco de Dados: MySQL
-- Frontend: HTML, CSS, JavaScript (com jQuery)
-- API Externa: [ViaCEP](https://viacep.com.br/)
+Este projeto implementa um formulário para o cadastro de endereços utilizando a API ViaCEP para preenchimento automático de dados e AJAX para envio das informações para o backend.
 
-## Passos para Implementação
+---
 
-### 1. Configuração do Ambiente
-1. Instalar o framework escolhido (Laravel).
-2. Configurar a conexão com o banco de dados.
-3. Criar a estrutura de diretórios do projeto.
+## 🚀 Funcionalidades
 
-### 2. Implementação da Página de Busca
-1. Criar um formulário com os seguintes campos:
-   - CEP
-   - Logradouro
-   - Bairro
-   - Cidade
-   - Estado
-2. Adicionar um evento para buscar os dados na API do ViaCEP ao inserir o CEP.
-3. Preencher os campos automaticamente com os dados retornados pela API.
+1. **Formulário de Cadastro:**
+   - Campos:
+     - CEP
+     - Logradouro
+     - Rua
+     - Bairro
+     - Cidade
+     - Estado
+     - Número
+   - Botão de "Salvar" para envio dos dados.
 
-### 3. Implementação do Cadastro no Banco de Dados
-1. Criar uma tabela para armazenar os dados dos endereços.
-2. Implementar uma rota para receber os dados do formulário e salvar no banco de dados.
+2. **Integração com a API ViaCEP:**
+   - Consulta automática dos dados de endereço ao informar um CEP válido.
+   - Preenchimento automático dos campos do formulário.
+   - Tratamento de erros para CEPs inválidos ou problemas de conexão.
 
-### 4. Implementação da Tela de Listagem
-1. Criar uma página para exibir os registros cadastrados.
-2. Implementar paginação para facilitar a navegação caso haja muitos registros.
+3. **Envio de Dados via AJAX:**
+   - Envio dos dados do formulário para a rota configurada no backend (`enderecos.store`).
+   - Respostas de sucesso e falha exibidas para o usuário.
 
-## Exemplo de Estrutura da Tabela
-```sql
-CREATE TABLE enderecos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    cep VARCHAR(9) NOT NULL,
-    logradouro VARCHAR(255) NOT NULL,
-    bairro VARCHAR(100) NOT NULL,
-    cidade VARCHAR(100) NOT NULL,
-    estado VARCHAR(2) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
+---
 
-## Exemplo de Requisição à API ViaCEP
-```javascript
-function buscarEndereco() {
-    let cep = document.getElementById('cep').value;
-    if (cep.length === 8) {
-        fetch(`https://viacep.com.br/ws/${cep}/json/`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('logradouro').value = data.logradouro;
-                document.getElementById('bairro').value = data.bairro;
-                document.getElementById('cidade').value = data.localidade;
-                document.getElementById('estado').value = data.uf;
-            })
-            .catch(error => console.error('Erro ao buscar o endereço:', error));
-    }
-}
-```
+## 📋 Estrutura do Desenvolvimento
 
-## Como Executar o Projeto
-1. Clonar este repositório.
-2. Instalar as dependências necessárias (`composer install`).
-3. Configurar o banco de dados e rodar as migrações (`php artisan migrate` para Laravel).
-4. Iniciar o servidor (`php artisan serve` para Laravel).
-5. Acessar `http://localhost:8000` no navegador para testar a aplicação.
+### 1. Formulário de Cadastro
+- Desenvolver um formulário em HTML com os campos especificados:
+  - **CEP:** Campo de texto para digitar o CEP.
+  - **Logradouro, Rua, Bairro, Cidade, Estado, Número:** Campos para preencher ou exibir as informações do endereço.
+  - **Botão Salvar:** Um botão para enviar os dados.
 
-## Considerações Finais
-O objetivo deste teste é avaliar a capacidade do candidato em integrar APIs externas, manipular dados em formulários, interagir com um banco de dados e criar interfaces funcionais.
+---
 
-Boa sorte!
+### 2. Integração com o ViaCEP
+- Adicionar um evento no campo de **CEP** para disparar a consulta na API ViaCEP.
+- A API pode ser acessada pelo endpoint:  
+  ```plaintext
+  https://viacep.com.br/ws/{cep}/json/
+  ```
+- Preencher automaticamente os campos retornados pela API:
+  - Logradouro
+  - Bairro
+  - Cidade
+  - Estado
+- Tratar os seguintes casos de erro:
+  - CEP inválido (exemplo: quantidade incorreta de dígitos).
+  - Erros na API (exemplo: indisponibilidade ou erro de conexão).
 
+---
+
+### 3. Envio de Dados via AJAX
+- Configurar um script para enviar os dados do formulário ao backend utilizando a rota:
+  ```php
+  {{ route('enderecos.store') }}
+  ```
+- A requisição deve:
+  - Utilizar o método `POST`.
+  - Enviar os dados do formulário em formato JSON.
+  - Incluir o CSRF Token para proteger contra ataques CSRF.
+- Após o envio:
+  - Exibir mensagens de feedback ao usuário (sucesso ou erro).
+  - Opcional: Limpar o formulário em caso de sucesso.
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+- **Frontend:**
+  - HTML, CSS
+  - JavaScript (jQuery ou Vanilla JS, conforme preferência)
+- **Backend:**
+  - Laravel para gerenciar a rota e salvar os dados no banco de dados.
+- **API Externa:**
+  - [ViaCEP](https://viacep.com.br/) para preenchimento automático dos dados de endereço.
+
+---
+
+## 🔧 Como Rodar o Projeto
+
+1. **Clonar o Repositório:**
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd <NOME_DO_PROJETO>
+   ```
+
+2. **Configurar o Laravel:**
+   - Certifique-se de que o ambiente do Laravel está configurado:
+     - Banco de dados.
+     - `.env` com as configurações corretas.
+   - Rodar as migrações:
+     ```bash
+     php artisan migrate
+     ```
+
+3. **Iniciar o Servidor:**
+   ```bash
+   php artisan serve
+   ```
+
+4. **Acessar no Navegador:**
+   - Abra o navegador em: `http://localhost:8000`.
+
+---
+
+## 📄 Observações Importantes
+
+- Certifique-se de que o banco de dados esteja configurado corretamente e que a tabela `enderecos` existe.
+- Caso necessário, revise o tratamento de erros da API ViaCEP para lidar com possíveis instabilidades.
+- Teste as validações do backend para garantir que os dados enviados sejam armazenados corretamente.
+
+---
+
+**Boa sorte com o desenvolvimento! 🚀**
