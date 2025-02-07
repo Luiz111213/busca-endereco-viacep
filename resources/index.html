@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title> 
+    <link rel="stylesheet" href="./style.css"> 
+</head>
+                    <!--usei ia para arrumar a indentação-->
+<body>
+    <form  action="{{ route('enderecos.store')}}" method="post" autocomplete="on"  @csrf>
+
+        <h1>Formulário</h1>
+        <fieldset>
+            <legend><b>Endereço</b></legend>
+            <p>
+                <label for="cep">Cep<b>:</b></label>
+                <input type="text" name="cep" id="cep" required>
+            </p>
+            <p>
+                <label for="logradouro">Logradouro<b>:</b></label>
+                <input type="text" name="logradouro" id="logradouro" required>
+            </p>
+            <p>
+                <label for="rua">Rua<b>:</b></label>
+                <input type="text" name="rua" id="rua">
+            </p>
+            <p>
+                <label for="bairro">Bairro<b>:</b></label>
+                <input type="text" name="bairro" id="bairro" required>
+            </p>
+            <p>
+                <label for="cidade">Cidade<b>:</b></label>
+                <input type="text" name="cidade" id="cidade" required>
+            </p>
+            <p>
+                <label for="estado">Estado<b>:</b></label>
+                <input type="text" name="estado" id="estado" required>
+            </p>
+            <p>
+                <label for="numero">Número<b>:</b></label>
+                <input type="number" name="numero" id="numero" required>
+            </p>
+            <p>
+                <button type="submit" id="btn">Salvar</button>
+                <button type="reset" id="bt">Limpar</button>
+            </p>
+        </fieldset>
+    </form>
+    <meta name="csrf-token" content="{{ csrf_token() }}"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="./script2.js"></script>
+</body>
+</html>
+

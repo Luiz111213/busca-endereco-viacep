@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\MsContatoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EnderecosController;
 
@@ -22,5 +22,10 @@ use App\Http\Controllers\EnderecosController;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/index.html',  [Mscontroller::class, 'index.html'])->name('index.html');
+
+
+
 
 Route::post('/enderecos/salvar', [EnderecosController::class, 'store'])->name('enderecos.store');
