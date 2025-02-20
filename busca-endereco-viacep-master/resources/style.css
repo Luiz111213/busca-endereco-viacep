@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #e0e0e0;
+}
+
+form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 500px;
+    height: 500px;
+}
+
+form input {
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 12px;
+}
+
+h1 {
+    text-shadow: 3px 3px #e0e0e0;
+    padding: 8px;
+}
+
+button {
+    margin: 2%;
+    height: 25px;
+    box-shadow: 3px 3px #e0e0e0;
+    padding: 3px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border-radius: 10%;
+}
+
+label {
+    margin: 5px;
+}
+
+fieldset {
+    padding: 10px;
+}
+
+#numero {
+    width: 70px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#cep {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#cidade {
+    width: 120px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#estado {
+    width: 120px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#bairro {
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#rua {
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#logradouro {
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+    padding-left: 2px;
+}
+
+#bt {
+    background-color: red;
+    color: white;
+}
